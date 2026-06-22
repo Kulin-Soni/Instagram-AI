@@ -1,7 +1,7 @@
 [project]
-name = "insta-ai"
+name = "instagram-ai"
 version = "0.1.0"
-description = ""
+description = "Run ai models locally and chat with them on Instagram."
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [

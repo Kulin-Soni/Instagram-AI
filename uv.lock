@@ -148,7 +148,7 @@ wheels = [
 ]
 
 [[package]]
-name = "insta-ai"
+name = "instagram-ai"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

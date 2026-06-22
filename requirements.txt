@@ -3,7 +3,7 @@
 aiograpi==1.10.25 \
     --hash=sha256:0418b56485065db7a44b9d3cfe105fa92e797a30d3a435ffb94f9839fa8cda8e \
     --hash=sha256:1365c5bf5483a07edccafeff20916015342ab6613ace068656dd2cddcd37cd58
-    # via insta-ai
+    # via instagram-ai
 annotated-types==0.7.0 \
     --hash=sha256:1f02e8b43a8fbbc3f3e0d4f0f4bfc8131bcb4eebe8849b8e5c773f3a1c582a53 \
     --hash=sha256:aff07c09a53a08bc8cfccb9c85b05f1aa9a2a6f23728d790723543408344ce89
@@ -15,7 +15,7 @@ anyio==4.14.0 \
 beanie==2.1.0 \
     --hash=sha256:077381dad0e0129fd4dc38cdaa3d85cb517da7338e3d893a689314884df4379b \
     --hash=sha256:44f3c50710aa90daa9c9c40f9bf9c8954968fe16d7e5398c1f2fd462daf94fe1
-    # via insta-ai
+    # via instagram-ai
 certifi==2026.6.17 \
     --hash=sha256:024c88eeec92ca068db80f02b8b07c9cef7b9fe261d1d535abfd5abd6f6af432 \
     --hash=sha256:2227dcbaafe0d2f59279d1762ddddc37783ed4354594f194ffc31d20f41fc3db
@@ -61,7 +61,7 @@ lazy-model==0.4.0 \
 ollama==0.6.2 \
     --hash=sha256:3ad7daab28e5a973445c36a73882a3ef698c2ebb00e21e308652741577509f7d \
     --hash=sha256:936d55daa684f474364c098611c933626f8d6c7d67065c5b7ae0c477b508b07f
-    # via insta-ai
+    # via instagram-ai
 orjson==3.11.9 \
     --hash=sha256:011382e2a60fda9d46f1cdee31068cfc52ffe952b587d683ec0463002802a0f4 \
     --hash=sha256:051b102c93b4f634e89f3866b07b9a9a98915ada541f4ec30f177067b2694979 \
@@ -205,7 +205,7 @@ pydantic==2.12.5 \
     # via
     #   aiograpi
     #   beanie
-    #   insta-ai
+    #   instagram-ai
     #   lazy-model
     #   ollama
 pydantic-core==2.41.5 \
@@ -321,7 +321,7 @@ pysocks==1.7.1 \
 python-dotenv==1.2.2 \
     --hash=sha256:1d8214789a24de455a8b8bd8ae6fe3c6b69a5e3d64aa8a8e5d68e694bbcb285a \
     --hash=sha256:2c371a91fbd7ba082c2c1dc1f8bf89ca22564a087c2c287cd9b662adde799cf3
-    # via insta-ai
+    # via instagram-ai
 typing-extensions==4.15.0 \
     --hash=sha256:0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466 \
     --hash=sha256:f0fa19c6845758ab08074a0cfa8b7aecb71c999ca73d62883bc25cc018c4e548

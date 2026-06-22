@@ -1,15 +1,12 @@
 # Instagram AI
 
-**(EXPERIMENTAL)** Run ai models and chat with them on Instagram.
+**(EXPERIMENTAL)** Run ai models locally and chat with them on Instagram.
 
 ## Features
 
 - [x] Chat in groups and dm
-
 - [x] Reply to messages
-
 - [x] Fully local
-
 - [ ] Image support (in future versions)
 
 ## Requirements
