@@ -4,13 +4,13 @@
 
 ## Features
 
-[x] Chat in groups and dm
+- [x] Chat in groups and dm
 
-[x] Reply to messages
+- [x] Reply to messages
 
-[x] Fully local
+- [x] Fully local
 
-[ ] Image support (in future versions)
+- [ ] Image support (in future versions)
 
 ## Requirements
 
