@@ -1,0 +1,48 @@
+services:
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: docker/server.Dockerfile
+    env_file:
+      - .env
+    depends_on:
+      - mongo
+      - ai
+  
+  mongo:
+    container_name: mongo
+    image: mongo
+    env_file:
+      - .env
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+    restart: unless-stopped
+    ports:
+      - "${MONGO_PORT}:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+  ai:
+    container_name: ai
+    build:
+      context: .
+      dockerfile: docker/ai.Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "${OLLAMA_PORT}:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+      - ollama_data:/models
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+volumes:
+  mongodb_data:
+  ollama_data:

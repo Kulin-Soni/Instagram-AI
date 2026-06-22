@@ -1,0 +1,13 @@
+[project]
+name = "insta-ai"
+version = "0.1.0"
+description = ""
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "aiograpi>=1.10.25",
+    "beanie>=2.1.0",
+    "ollama>=0.6.2",
+    "pydantic>=2.12.5",
+    "python-dotenv>=1.2.2",
+]
