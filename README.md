@@ -95,7 +95,7 @@
     FROM "/models/model_name.gguf"
     ```
 
-3. If you need to change the system prompt, [`model/Modelfile`](./model/Modelfile) contains `SYSTEM` keyword followed by the string where you can put your new prompt. The file also contains other parameters you can tune. Here is a reference to [Modelfile guide](https://docs.ollama.com/modelfile).
+3. If you need to change the system prompt, [`model/Modelfile`](./model/Modelfile) contains `SYSTEM` keyword followed by the string where you can put your new prompt. The file also contains other parameters you can tune. Here is a guide to [Modelfile](https://docs.ollama.com/modelfile).
 
     ```txt
     SYSTEM "You are an ai model."
