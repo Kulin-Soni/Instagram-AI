@@ -26,7 +26,7 @@ DEV_ID = os.getenv("DEV_ID")
 MONGO_USERNAME = os.getenv("MONGO_USERNAME")
 MONGO_PASSWORD = os.getenv("MONGO_PASSWORD")
 MONGO_PORT = os.getenv("MONGO_PORT")
-MONGO_URI = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@localhost:{MONGO_PORT}/"
+MONGO_URI = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@mongo:{MONGO_PORT}/"
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "")
 OLLAMA_PORT = os.getenv("OLLAMA_PORT")
