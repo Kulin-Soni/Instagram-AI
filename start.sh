@@ -9,4 +9,4 @@ else
   exit 1
 fi
 
-docker compose -f "$COMPOSE_FILE" --project-directory . up
+docker compose -f "$COMPOSE_FILE" --project-directory . up --build

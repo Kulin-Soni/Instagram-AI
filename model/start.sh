@@ -28,5 +28,6 @@ fi
 
 # Create model (picks up both files via Modelfile)
 ollama create gemma4 -f /Modelfile
+
 echo "Gemma 4 ready!"
 wait $OLLAMA_PID

@@ -125,8 +125,8 @@ class InstagramClient:
     """
 
     # Seconds to wait before reconnecting after a transient failure.
-    _RECONNECT_DELAY_ON_TIMEOUT: int = 5
-    _RECONNECT_DELAY_ON_ERROR: int = 10
+    _RECONNECT_DELAY_ON_TIMEOUT: int = 1
+    _RECONNECT_DELAY_ON_ERROR: int = 1
 
     def __init__(self, *, logout_on_exit: bool = False) -> None:
         self._client = Client()
@@ -477,7 +477,7 @@ class InstagramClient:
         """
         self._client.realtime_on("message", self._on_realtime_message)
         realtime_session = await self._client.realtime_connect()
-        realtime_session.transport.sock.settimeout(60)  # type: ignore[union-attr]
+        realtime_session.transport.sock.settimeout(240)  # type: ignore[union-attr]
         realtime_session.transport.sock.setsockopt( # type: ignore
             socket.SOL_SOCKET, socket.SO_KEEPALIVE, 1
         )

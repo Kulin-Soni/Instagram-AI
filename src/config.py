@@ -30,4 +30,4 @@ MONGO_URI = f"mongodb://{MONGO_USERNAME}:{MONGO_PASSWORD}@mongo:{MONGO_PORT}/"
 
 OLLAMA_MODEL = os.getenv("OLLAMA_MODEL", "")
 OLLAMA_PORT = os.getenv("OLLAMA_PORT")
-OLLAMA_HOST = f"http://ollama:{OLLAMA_PORT}"
+OLLAMA_HOST = f"http://ai:{OLLAMA_PORT}"
