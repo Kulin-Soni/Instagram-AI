@@ -404,26 +404,30 @@ class InstagramClient:
         message_timestamp = datetime.fromtimestamp(
             timestamp / _INSTAGRAM_TIMESTAMP_DIVISOR
         )
+        for _ in range(10):
+            try:
+                sent_message = await self._client.direct_send(
+                    response,
+                    thread_ids=[int(thread_id)],
+                    reply_to_message=DirectMessage(
+                        id=msg_id,
+                        client_context=context,
+                        timestamp=message_timestamp,  # type: ignore[arg-type]
+                    ),
+                )
 
-        sent_message = await self._client.direct_send(
-            response,
-            thread_ids=[int(thread_id)],
-            reply_to_message=DirectMessage(
-                id=msg_id,
-                client_context=context,
-                timestamp=message_timestamp,  # type: ignore[arg-type]
-            ),
-        )
-
-        my_id = str(self._client.user_id)
-        await chat.add_to_chat(
-            Msg(
-                author=my_id,
-                content=response,
-                msg_id=sent_message.id,
-                replying_to=user_id,
-            )
-        )
+                my_id = str(self._client.user_id)
+                await chat.add_to_chat(
+                    Msg(
+                        author=my_id,
+                        content=response,
+                        msg_id=sent_message.id,
+                        replying_to=user_id,
+                    )
+                )
+                break
+            except Exception:
+                logger.info(msg="An error occurred while sending message:", exc_info=True)
 
     # ------------------------------------------------------------------
     # Real-time sync callback

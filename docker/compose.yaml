@@ -31,6 +31,14 @@ services:
       dockerfile: docker/ai.Dockerfile
     env_file:
       - .env
+    environment:
+      - OLLAMA_FLASH_ATTENTION=1
+      - OLLAMA_KV_CACHE_TYPE=q8_0
+      - OLLAMA_CONTEXT_LENGTH=4096
+      - OLLAMA_NUM_PARALLEL=4
+      - OLLAMA_KEEP_ALIVE=-1
+      - OLLAMA_MAX_QUEUE=512
+      # - OLLAMA_GPU_OVERHEAD=4294967296
     ports:
       - "${OLLAMA_PORT}:11434"
     volumes:

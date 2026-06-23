@@ -1,4 +1,5 @@
 import asyncio
+from typing import Any
 
 import httpx
 import logging
@@ -26,37 +27,25 @@ class AISession:
             return
 
     @staticmethod
-    @staticmethod
     async def wait_for_ready():
+
+        def _is_loaded(tags: Any):
+            for m in tags:
+                if m["name"] == f"{OLLAMA_MODEL}:latest":
+                    logger.info("Ollama is ready!")
+                    return True
+            return False
+
         async with httpx.AsyncClient() as session:
             while True:
                 try:
-                    res = await session.get(f'{OLLAMA_HOST}/api/tags')
+                    res = await session.get(f'{OLLAMA_HOST}/api/ps')
                     res.raise_for_status()
-                    tags = res.json()
-                    if tags:
-                        logger.info("Ollama is ready!")
+                    tags = res.json().get("models", [])
+                    if _is_loaded(tags):
                         break
-                except httpx.HTTPStatusError:
-                    logger.info("Waiting for ollama to be ready...")
-                    await asyncio.sleep(1)
-
-            timeout = 120
-            while True:
-                try:
-                    (await session.post(
-                        f'{OLLAMA_HOST}/api/generate',
-                        json={
-                            "model": OLLAMA_MODEL,
-                            "prompt": "hi",
-                            "options": {"num_predict": 1},
-                            "stream": False
-                        },
-                        timeout=timeout
-                    )).raise_for_status()
-                    break
                 except Exception:
-                    logger.info("Waiting for model to load...")
-                    timeout += 10
+                    logger.info("Waiting for ollama to be ready...")
                 await asyncio.sleep(2)
+
             logger.info("Model loaded successfully!")
