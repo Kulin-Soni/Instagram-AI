@@ -29,9 +29,8 @@ fi
 # Create model (picks up both files via Modelfile)
 ollama create gemma4 -f /Modelfile
 
-curl -sf http://localhost:11434/api/generate \
-  -d "{\"model\": \"gemma4\", \"keep_alive\": -1}" \
-  > /dev/null
+# Load model
+ollama run gemma4
 
 echo "Gemma 4 ready!"
 

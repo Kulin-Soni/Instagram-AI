@@ -219,7 +219,7 @@ class InstagramClient:
 
         chat.users = users
         # Exclude the last message — see NOTE in docstring.
-        await chat.add_to_chat(unseen_messages[:-1])
+        await chat.add_to_chat(unseen_messages[::-1][:-1])
         return chat
 
     def _build_ai_history(
@@ -295,15 +295,6 @@ class InstagramClient:
         replying_to_id = self._extract_reply_author_id(replied_to_raw)
         author_display_name = _resolve_display_name(str(user_id), chat.users)
 
-        await chat.add_to_chat(
-            Msg(
-                author=str(user_id),
-                content=text,
-                msg_id=msg_id,
-                replying_to=replying_to_id,
-            )
-        )
-
         # Only respond when the message explicitly mentions or commands this bot.
         matched_prefix = _find_matching_prefix(text, _TRIGGER_PREFIXES)
         if not matched_prefix:
@@ -318,6 +309,15 @@ class InstagramClient:
             user_id=str(user_id),
             author_display_name=author_display_name,
             message_body=text.removeprefix(matched_prefix),
+        )
+
+        await chat.add_to_chat(
+            Msg(
+                author=str(user_id),
+                content=text,
+                msg_id=msg_id,
+                replying_to=replying_to_id,
+            )
         )
 
     @staticmethod
