@@ -43,10 +43,10 @@
     MONGO_URI = "your_uri_here"
     ```
 
-3. [Install **Ollama**](https://ollama.com), and run the [`model/download.sh`](./model/download.sh) file, it will setup everything automatically:
+3. [Install **Ollama**](https://ollama.com), and run the [`model/start.sh`](./model/start.sh) file, it will setup everything automatically:
 
     ```sh
-    bash ./model/download.sh
+    bash ./model/start.sh
     ```
 
 4. Replace the `OLLAMA_HOST` constant in [`src/config.py`](./src/config.py) with `http://127.0.0.1:11434` (default url of Ollama):
@@ -74,9 +74,9 @@
 
 1. GPU support is limited on MacOS, so you will need to follow the non-docker setup to use Apple Silicon chip.
 
-2. If you need to change the model, you can do it by going to [`model/download.sh`](./model/download.sh) and modifying the urls and names. If you change the name of the file to be downloaded, also modify it in [`model/Modelfile`](./model/Modelfile).
+2. If you need to change the model, you can do it by going to [`model/start.sh`](./model/start.sh) and modifying the urls and names. If you change the name of the file to be downloaded, also modify it in [`model/Modelfile`](./model/Modelfile).
 
-    [`model/download.sh`](./model/download.sh):
+    [`model/start.sh`](./model/start.sh):
 
     ```sh
     if [ ! -f /models/model_name.gguf ]; then
